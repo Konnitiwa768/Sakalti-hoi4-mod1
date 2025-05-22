@@ -1,0 +1,117 @@
+namespace = chaos
+
+# chaos101 - 雰囲気イベント
+country_event = {
+    id = chaos.101
+    title = "chaos.101.t"
+    desc = "chaos.101.d"
+    picture = GFX_report_event_generic
+    fire_only_once = no
+    is_triggered_only = yes
+
+    option = {
+        name = "始まりに過ぎない……"
+    }
+}
+
+# chaos102 - 国の解放
+country_event = {
+    id = chaos.102
+    title = "chaos.102.t"
+    desc = "chaos.102.d"
+    picture = GFX_report_event_political
+    fire_only_once = no
+    is_triggered_only = yes
+
+    option = {
+        name = "新たな国が現れた"
+        release_random_country = yes
+    }
+}
+
+# chaos103 - 全土中核州化
+country_event = {
+    id = chaos.103
+    title = "chaos.103.t"
+    desc = "chaos.103.d"
+    picture = GFX_report_event_political
+    fire_only_once = no
+    is_triggered_only = yes
+
+    option = {
+        name = "我らの領土だ"
+        every_owned_state = {
+            add_core_of = ROOT
+        }
+    }
+}
+
+# chaos104 - 覚醒イベント
+country_event = {
+    id = chaos.104
+    title = "chaos.104.t"
+    desc = "chaos.104.d"
+    picture = GFX_report_event_generic
+    fire_only_once = no
+    is_triggered_only = yes
+
+    option = {
+        name = "目覚めの時だ！"
+        add_political_power = 100
+        add_manpower = 100000
+        add_equipment_to_stockpile = {
+            type = infantry_equipment
+            amount = 10000
+        }
+        add_timed_idea = {
+            idea = generic_scientific_focus
+            days = 730
+        }
+        add_timed_idea = {
+            idea = generic_production_effort
+            days = 730
+        }
+    }
+}
+
+# chaos105 - 内戦の再燃
+country_event = {
+    id = chaos.105
+    title = "chaos.105.t"
+    desc = "chaos.105.d"
+    picture = GFX_report_event_war
+    fire_only_once = no
+    is_triggered_only = yes
+
+    option = {
+        name = "内戦再発…！"
+        start_civil_war = {
+            ideology = random
+            size = 0.5
+        }
+    }
+}
+
+# chaos106 - 天災イベント
+country_event = {
+    id = chaos.106
+    title = "chaos.106.t"
+    desc = "chaos.106.d"
+    picture = GFX_report_event_generic
+    fire_only_once = no
+    is_triggered_only = yes
+
+    option = {
+        name = "災厄の年だ"
+        every_owned_state = {
+            modify_state_building = {
+                type = infrastructure
+                level = -2
+            }
+        }
+        add_timed_idea = {
+            idea = economic_depression
+            days = 365
+        }
+    }
+}
